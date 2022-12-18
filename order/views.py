@@ -8,6 +8,7 @@ import datetime
 # Create your views here.
 
 def place_order(request, total=0,quantity=0):
+   
     current_user = request.user
     cart_items= CartItem.objects.filter(user=current_user)
     cart_count=cart_items.count()
@@ -18,7 +19,7 @@ def place_order(request, total=0,quantity=0):
     tax=0
     
     for cart_item in cart_items:
-        total = (cart_item.product.price * cart_item.quantity)
+        total += (cart_item.product.price * cart_item.quantity)
         quantity+=cart_item.quantity
         tax =(2 * total)/100
         grand_total = total + tax
@@ -26,6 +27,7 @@ def place_order(request, total=0,quantity=0):
         form=OrderForm(request.POST)
         if form.is_valid():
             data=Order()
+            data.user=current_user
             data.first_name=form.cleaned_data['first_name']
             data.last_name=form.cleaned_data['last_name']
             data.phone_number=form.cleaned_data['phone_number']
