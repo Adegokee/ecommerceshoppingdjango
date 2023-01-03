@@ -8,7 +8,8 @@
     <!-- ============================ COMPONENT LOGIN   ================================= -->
     {% if request.GET.command == 'verification' %}
     <div class="container mx-auto alert alert-info" style="max-width: 880px; margin-top:100px;">
-      <p class="text-center">Thank you for signing up, please proceed to {{request.GET.email}} to comfirm the link by clicking. Thanks </p>
+      <p class="text-center">Thank you for signing up, please proceed to {{request.GET.email}}
+         to comfirm the link by clicking. Thanks </p>
       <p class="text-center">Already Verified: <a href="{% url 'login' %}">Login</a></p>
     </div>
    {% else %}
@@ -37,7 +38,7 @@
         </div> <!-- card .// -->
  
     
-         <p class="text-center mt-4">Don't have account? <a href="{%url 'login' %}">Sign up</a></p>
+         <p class="text-center mt-4">Don't have account? <a href="{% url 'register' %}">Sign up</a></p>
          <br><br>
          {% endif %}
     <!-- ============================ COMPONENT LOGIN  END.// ================================= -->
