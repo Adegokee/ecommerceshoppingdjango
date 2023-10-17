@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-(nz3^_e-6pg@)eu86y165hiu6%j$t7p#vk*=jn^dej$vnlxglp
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['http://34.224.83.157:8000']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -126,12 +126,17 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
+# STATIC_URL = '/static/'
+# STATIC_ROOT = BASE_DIR / 'static/'
+# STATICFILES_DIRS = [
+#     'ecommerce/static',
+# ]
 STATIC_URL = 'static/'
-STATIC_ROOT = BASE_DIR /'static'
-STATICFILES_DIR=[
-    'static'
+STATICFILES_DIRS=[
+    BASE_DIR / 'static'
 ]
-# STATICFILES_DIRS=[os.path.join(BASE_DIR, 'static')]
+
+
 
 MEDIA_URL='/media/'
 MEDIA_ROOT= BASE_DIR /'media'
@@ -156,5 +161,5 @@ EMAIL_PORT = 587
 EMAIL_HOST_USER ='ababatunde022@gmail.com'
 EMAIL_HOST_PASSWORD = 'mkrwyifjwaagutip'
 EMAIL_USE_TLS = True
-STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+# STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
